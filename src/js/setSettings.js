@@ -19,6 +19,7 @@ const optionValues = {
         current: storageGet('theme') || 'red'
     }
 };
+
 const timeInputs = document.querySelectorAll('.settings__time input');
 const fonts = document.querySelectorAll('.fonts > button');
 const colors = document.querySelectorAll('.color > button');
@@ -105,7 +106,7 @@ function changeSelectedColor(target) {
         item.className = `menu--item ${optionValues.theme.current}`
     })
 };
-changeSelectedColor(optionValues.theme.current)
+changeSelectedColor(document.getElementById(optionValues.theme.current));
 
 (function setNotifButton() {
     if(notifPerms == 'true') notifCheckbox.checked = true

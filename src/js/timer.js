@@ -95,7 +95,8 @@ const timerInterval = setInterval(() => {
                 notification = sendNotification({
                     title: 'You can finally rest!',
                     body: `Take a long break now, your next pomodoro timer will start in ${Math.floor(totalTimestamp / 60)} minutes.`,
-                    image: './resources/longBreak.png'
+                    image: './resources/longBreak.png',
+                    icon: './resources/logo500.png'
                     // image: 'https://i.imgur.com/OzcVy9J.png'
                 })
             }
@@ -113,7 +114,8 @@ const timerInterval = setInterval(() => {
                 notification = sendNotification({
                     title: 'Hey, take a short break!',
                     body: `Your next pomodoro timer will start in ${Math.floor(totalTimestamp / 60)} minutes.`,
-                    image: './resources/shortBreak.png'
+                    image: './resources/shortBreak.png',
+                    icon: './resources/logo500.png'
                     // image: 'https://i.imgur.com/ucKAK47.png'
                 })
             }
@@ -130,7 +132,8 @@ const timerInterval = setInterval(() => {
                 notification = sendNotification({
                     title: 'It is time to start your task!',
                     body: `You will have a ${breakSequence === 3 ? 'long' : 'short'} break in ${Math.floor(totalTimestamp / 60)} minutes.`,
-                    image: './resources/pomodoro.png'
+                    image: './resources/pomodoro.png',
+                    icon: './resources/logo500.png'
                     // image: 'https://i.imgur.com/QRSKyvq.png'
                 })
             }
