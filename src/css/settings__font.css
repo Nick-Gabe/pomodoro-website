@@ -1,0 +1,49 @@
+.settings__font {
+  justify-content: space-between;
+  margin: 10px 0; }
+  .settings__font .fonts {
+    display: flex;
+    width: 192px;
+    justify-content: space-between; }
+  .settings__font .fonts > button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--light-gray);
+    border-radius: 50%;
+    padding: 10px;
+    margin: 0 5px;
+    font-weight: 900;
+    transition: background-color .2s ease,  color .2s ease; }
+    .settings__font .fonts > button.selected {
+      background-color: var(--yankees-blue);
+      color: var(--white); }
+    .settings__font .fonts > button:hover {
+      cursor: pointer;
+      background-color: var(--gray);
+      color: var(--white); }
+      .settings__font .fonts > button:hover::after {
+        content: "12:34:56.7890";
+        font-family: inherit;
+        animation: tipAppear .4s ease 0s forwards;
+        position: absolute;
+        background-color: var(--light-gray);
+        color: var(--yankees-blue);
+        z-index: 8;
+        padding: 10px;
+        font-weight: 900;
+        bottom: -45px;
+        border-radius: 10px;
+        width: 120px;
+        text-align: center; }
+      .settings__font .fonts > button:hover::before {
+        animation: tipAppear .4s ease 0s forwards;
+        content: '';
+        color: var(--yankees-blue);
+        position: absolute;
+        bottom: -10px;
+        border-bottom: 10px solid var(--light-gray);
+        border-top: 10px solid transparent;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent; }

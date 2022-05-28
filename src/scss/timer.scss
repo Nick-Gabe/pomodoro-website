@@ -1,0 +1,91 @@
+.timer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 98%;
+    max-width: 20rem;
+    aspect-ratio: 1 / 1;
+    margin-top: 20px;
+    background-color: var(--yankees-blue);
+    border-radius: 50%;
+    background: linear-gradient(312deg, var(--yankees-blue), var(--dark-blue));
+    box-shadow:  50px 50px 100px #111223,
+             -50px -50px 100px #2c305d;
+
+    &:before {
+        content: '';
+        position: absolute;
+        width: 85%;
+        max-width: 18rem;
+        aspect-ratio: 1 / 1;
+        background-color: var(--dark-blue);
+        border-radius: 50%;
+    }
+}
+
+.timer--counter {
+    z-index: 2;
+    font-weight: 900;
+    color: var(--light-gray);
+    font-size: 5rem;
+    margin: 10px 0;
+}
+
+.timer--pause {
+    color: var(--light-gray);
+    z-index: 2;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    transition: color .2s ease;
+    user-select: none;
+
+    &:hover {
+        cursor: pointer;
+        color: var(--gray);
+    }
+
+    &.red {
+        color: var(--begonia-red);
+    }
+    &.blue {
+        color: var(--eletric-blue);
+    }
+    &.lilac {
+        color: var(--bright-lilac);
+    }
+}
+
+.timer__info {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.base-timer__svg {
+    transform: rotate(270deg)
+}
+
+.base-timer__circle {
+    fill: none;
+    stroke: none;
+}
+
+.base-timer__path-elapsed {
+    stroke-width: 4px;
+    stroke-dasharray: 283 283;
+    transition: stroke-dasharray linear 1s;
+    stroke-linecap: round;
+
+    &.red {
+        stroke: var(--begonia-red);
+    }
+    &.blue {
+        stroke: var(--eletric-blue);
+    }
+    &.lilac {
+        stroke: var(--bright-lilac);
+    }
+}

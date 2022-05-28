@@ -1,0 +1,28 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+    border: none;
+    background-color: transparent;
+}
+
+:root {
+    --white: #FFFFFF;
+    --light-gray: #e7ecff;
+    --gray: #A7A9B6;
+    --begonia-red: #F57375;
+    --yankees-blue: #1E2140;
+    --dark-blue: #151932;
+    --eletric-blue: #73EFF9;
+    --bright-lilac: #D982F3;
+}
+
+body {
+    background-color: var(--yankees-blue);
+    min-height: 100vh;
+}
+
+@media (min-height: 600px) {
+    body {
+        overflow: hidden;
+    }
+}

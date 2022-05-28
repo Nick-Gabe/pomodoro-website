@@ -1,0 +1,107 @@
+.settings__time {
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 10px 0; }
+  .settings__time > h3 {
+    width: 100%; }
+  .settings__time > div {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 30%; }
+    .settings__time > div label {
+      width: 100%;
+      font-weight: 700;
+      color: var(--gray);
+      font-size: .8rem;
+      margin-bottom: 5px; }
+    .settings__time > div input {
+      border-radius: 5px;
+      height: 40px;
+      background-color: var(--light-gray);
+      font-weight: 900;
+      padding: 20px;
+      width: -webkit-fill-available; }
+
+.pomodoro:focus-within {
+  align-items: center; }
+  .pomodoro:focus-within::after {
+    content: "This is the time you have to do your task.";
+    animation: tipAppear .4s ease 0s forwards;
+    position: absolute;
+    background-color: var(--light-gray);
+    z-index: 8;
+    padding: 10px;
+    font-weight: 700;
+    font-size: .8rem;
+    bottom: -68px;
+    border-radius: 10px;
+    width: 20ch;
+    text-align: center; }
+  .pomodoro:focus-within::before {
+    animation: tipAppear .4s ease 0s forwards;
+    content: '';
+    position: absolute;
+    bottom: -13px;
+    border-bottom: 10px solid var(--light-gray);
+    border-top: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent; }
+
+.shortBreak:focus-within {
+  align-items: center; }
+  .shortBreak:focus-within::after {
+    content: "After your task, you can have a short break.";
+    animation: tipAppear .4s ease 0s forwards;
+    position: absolute;
+    background-color: var(--light-gray);
+    z-index: 8;
+    padding: 10px;
+    font-weight: 700;
+    font-size: .8rem;
+    bottom: -68px;
+    border-radius: 10px;
+    width: 25ch;
+    text-align: center; }
+  .shortBreak:focus-within::before {
+    animation: tipAppear .4s ease 0s forwards;
+    content: '';
+    position: absolute;
+    bottom: -13px;
+    border-bottom: 10px solid var(--light-gray);
+    border-top: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent; }
+
+.longBreak:focus-within {
+  align-items: center; }
+  .longBreak:focus-within::after {
+    content: "After 4 short breaks, you can have a long break.";
+    animation: tipAppear .4s ease 0s forwards;
+    position: absolute;
+    background-color: var(--light-gray);
+    z-index: 8;
+    padding: 10px;
+    font-weight: 700;
+    font-size: .8rem;
+    bottom: -68px;
+    border-radius: 10px;
+    width: 25ch;
+    text-align: center; }
+  .longBreak:focus-within::before {
+    animation: tipAppear .4s ease 0s forwards;
+    content: '';
+    position: absolute;
+    bottom: -13px;
+    border-bottom: 10px solid var(--light-gray);
+    border-top: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent; }
+
+@keyframes tipAppear {
+  from {
+    transform: translateY(-10px) scale(0.95);
+    opacity: 0; }
+  to {
+    transform: translateY(0px) scale(1);
+    opacity: 1; } }

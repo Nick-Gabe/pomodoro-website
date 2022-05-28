@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;900&family=PT+Serif:wght@700&family=Spline+Sans+Mono:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="resources/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="resources/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="resources/favicon-16x16.png">
+    <link rel="manifest" href="resources/site.webmanifest">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main>
+        <h1>pomodoro</h1>
+        <div class="menu">
+            <button id="menuPomodoro" class="menu--item selected">pomodoro</button>
+            <button id="menuShort" class="menu--item">short break</button>
+            <button id="menuLong" class="menu--item">long break</button>
+        </div>
+
+        <div class="timer">
+            <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <g class="base-timer__circle">
+                    <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45" />
+                </g>
+            </svg>
+            <div class="timer__info">
+                <p class="timer--counter">00:00</p>
+                <button class="timer--pause">resume</button>
+            </div>
+        </div>
+
+        <button class="settings--button" aria-label="Options" id="settingsButton"></button>
+        <div class="settings" id="settings">
+            <div class="settings--bg"></div>
+            <div class="settings__popup">
+                <div class="settings__header">
+                    <h2>Settings</h2>
+                    <button id="closeSettings" class="settings--close" aria-label="Exit settings"></button>
+                </div>
+                <div class="settings__time">
+                    <h3>Time (minutes)</h3>
+                    <div class="pomodoro">
+                        <label for="pomodoro">pomodoro</label>
+                        <input type="number" name="pomodoro" id="pomodoro" min="1" max="60">
+                    </div>
+                    <div class="shortBreak">
+                        <label for="shortBreak">short break</label>
+                        <input type="number" name="shortBreak" id="shortBreak" min="1" max="60">
+                    </div>
+                    <div class="longBreak">
+                        <label for="longBreak">long break</label>
+                        <input type="number" name="longBreak" id="longBreak" min="1" max="60">
+                    </div>
+                </div>
+                <div class="settings__font">
+                    <h3>font</h3>
+                    <ul class="fonts">
+                        <button data-font="nunito" aria-label="Choose Nunito font" class="selected">Aa</button>
+                        <button data-font="pt serif" aria-label="Choose Serif font">Aa</button>
+                        <button data-font="spline sans mono" aria-label="Choose Spline Sans font">Aa</button>
+                    </ul>
+                </div>
+                <div class="settings__color">
+                    <h3>color</h3>
+                    <ul class="color">
+                        <button data-color="var(--begonia-red)" aria-label="Choose red color" class="selected"
+                            id="red"></button>
+                        <button data-color="var(--eletric-blue)" aria-label="Choose blue color" id="blue"></button>
+                        <button data-color="var(--bright-lilac)" aria-label="Choose lilac color" id="lilac"></button>
+                    </ul>
+                </div>
+                <div class="settings__notifications">
+                    <h3>notifications</h3>
+                    <div class="switch">
+                        <input type="checkbox" name="notifications" id="notifications">
+                        <span class="slider round"></span>
+                    </div>
+                </div>
+                <button id="submitSettings" class="settings--apply red">apply</button>
+            </div>
+        </div>
+    </main>
+    <aside class="github__corner">
+        <a href="">
+            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 250 250" fill="#e7ecff" style="position: absolute; top: 0; left: 0">
+                <path fill="#151932" d="M250 0L135 115h-15l-12 27L0 250V0z"/>
+                <path class="octo-arm" d="M122 109c15-9 9-19 9-19-3-7-2-11-2-11 1-7-3-2-3-2-4 5-2 11-2 11 3 10-5 15-9 16" style="-webkit-transform-origin: 120px 144px; transform-origin: 120px 144px"/>
+                <path class="octo-body" d="M135 115s-4 2-5 0l-14-14c-3-2-6-3-8-3 8-11 15-24-2-41-5-5-10-7-16-7-1-2-3-7-12-11 0 0-5 3-7 16-4 2-8 5-12 9s-7 8-9 12c-14 4-17 9-17 9 4 8 9 11 11 11 0 6 2 11 7 16 16 16 30 10 41 2 0 3 1 7 5 11l12 11c1 2-1 6-1 6z"/>
+              </svg>
+              
+        </a>
+    </aside>
+    <script src="js/script.js" type="module"></script>
+</body>
+
+</html>

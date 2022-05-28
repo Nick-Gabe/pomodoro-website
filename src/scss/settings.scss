@@ -1,0 +1,218 @@
+.settings--button {
+    margin: 40px 0;
+    width: 50px;
+    height: 50px;
+    background-image: url(../resources/gear-svgrepo-com.svg);
+    background-size: contain;
+    transition: 
+        transform .4s ease, 
+        filter .3s ease;
+
+    &:hover {
+        cursor: pointer;
+        filter: brightness(140%);
+        transform: rotate(1turn);
+    }
+}
+
+.settings {
+    display: none;
+    position: absolute;
+    width: 90%;
+    max-width: 500px;
+    z-index: 10;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: scale(.9) translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0px);
+    }
+}
+
+.settings__popup {
+    background-color: var(--white);
+    width: 100%;
+    z-index: 4;
+    border-radius: 20px;
+    padding: 10px 30px 40px 30px;
+    animation: appear .5s ease-out 0s 1 forwards;
+    
+    & > div {
+        display: flex;
+        align-items: center;
+        color: var(--yankees-blue);
+        // margin: 10px 0;
+    }
+
+    & h3 {
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-size: .8rem;
+        font-weight: 900;
+    }
+
+}
+
+.settings--bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: .5;
+    animation: fadeIn .4s ease 0s 1 forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+}
+
+.settings__header {
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    & h2 {
+        margin: 10px 0;
+    }
+    
+    & .settings--close {
+        width: 20px;
+        height: 20px;
+        background-image: url(../resources/x-svgrepo-com.svg);
+        background-size: 20px;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 50%;
+        padding: 15px;
+        transition: background-color .2s ease;
+        
+        &:hover {
+            cursor: pointer;
+            background-color: var(--light-gray);
+        }
+    }
+}
+
+.settings__color {
+    justify-content: space-between;
+    height: 50px;
+    margin: 10px 0;
+
+    & .color > button {
+        background-color: var(--light-gray);
+        border-radius: 50%;
+        width: 38px;
+        height: 38px;
+        margin: 0 5px;
+        font-weight: 900;
+        transition: filter .2s ease;
+        
+        &.selected {
+            background-image: url(../resources/check-svgrepo-com.svg);
+            background-repeat: no-repeat;
+            background-size: 50%;
+            background-position: center;
+        }
+        
+        &:hover:not(.selected) {
+            cursor: pointer;
+            filter: brightness(75%);
+        }
+    }
+}
+
+.settings--apply {
+    text-align: center;
+    left: 50%;
+    margin-left: -60px;
+    bottom: -20px;
+    position: absolute;
+    text-transform: capitalize;
+    border-radius: 40px;
+    padding: 15px;
+    font-weight: 700;
+    color: var(--white);
+    width: 120px;
+    transition: 
+        box-shadow .2s ease,
+        background-color .2s ease;
+
+    &.red {
+        background-color: var(--begonia-red);
+    }
+    &.blue {
+        background-color: var(--eletric-blue);
+    }
+    &.lilac {
+        background-color: var(--bright-lilac);
+    }
+
+    &:hover {
+        cursor: pointer;
+        box-shadow: 0 0 10px 0 rgba($color: #000, $alpha: .7);
+    }
+}
+
+@media (max-width: 425px) {
+    .settings__popup {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .settings__font,
+    .settings__color {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0 0 20px 0;
+        
+        & ul {
+            padding: 0;
+            margin: 0;
+            width: 153px !important;
+        }
+    }
+    
+    .settings__time {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 10px;
+
+        & > h3 {
+            text-align: center;
+        }
+
+        & > div {
+            width: 100% !important;
+            flex-direction: row !important;
+            justify-content: space-between;
+            align-items: center;
+            margin: 5px 0;
+
+            & input {
+                width: 70%;
+            }
+
+            &::before {
+                left: 20px;
+                bottom: 0px !important;
+            }
+            &::after {
+                bottom: -74px !important;
+                width: 18ch !important;
+            }
+        }
+    }
+}

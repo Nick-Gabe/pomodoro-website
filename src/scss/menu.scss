@@ -1,0 +1,54 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    & > h1 {
+        margin: 10px 0;
+        color: var(--light-gray);
+        user-select: none;
+    }
+}
+
+.menu {
+    background-color: var(--dark-blue);
+    border-radius: 50px;
+    padding: 5px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    z-index: 3;
+    margin: 20px 0;
+}
+
+.menu--item {
+    background-color: transparent;
+    color: var(--gray);
+    border: none;
+    padding: 10px;
+    user-select: none;
+    font-weight: 800;
+    border-radius: 50px;
+    transition: all .5s ease;
+
+    &:hover {
+        cursor: pointer;
+        color: var(--white);
+        background-color: var(--yankees-blue);
+    }
+    
+    &.selected {
+        color: var(--yankees-blue);
+        
+        &.red {
+            background-color: var(--begonia-red);
+        }
+        &.blue {
+            background-color: var(--eletric-blue);
+        }
+        &.lilac {
+            background-color: var(--bright-lilac);
+        }
+    }
+}
