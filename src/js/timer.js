@@ -87,7 +87,7 @@ function startTimer() {
         timerPath.style.strokeDasharray =
             `${(timeFraction - (1 / totalTimestamp) * (1 - timeFraction)) * 283} 283`
 
-        if (timestamp === 7) {
+        if (timestamp === 8) {
             tickingClock.play()
         }
         else if (timestamp === 0) {
