@@ -10,9 +10,9 @@ const alarm = new Audio('resources/mixkit-alarm-tone-996.wav')
 
 let notification = null
 let currentColor = storageGet('theme') || 'red'
-let pomodoro = storageGet('time-pomodoro')
-let short = storageGet('time-shortBreak')
-let long = storageGet('time-longBreak')
+let pomodoro = storageGet('time-pomodoro') || 15
+let short = storageGet('time-shortBreak') || 5
+let long = storageGet('time-longBreak') || 25
 let isPaused = false
 let currentTimer = document.getElementById('menuPomodoro')
 let timestamp = Math.floor(Number(pomodoro) * 60)

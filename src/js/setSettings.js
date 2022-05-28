@@ -105,6 +105,7 @@ function changeSelectedColor(target) {
         item.className = `menu--item ${optionValues.theme.current}`
     })
 };
+changeSelectedColor(optionValues.theme.current)
 
 (function setNotifButton() {
     if(notifPerms == 'true') notifCheckbox.checked = true
