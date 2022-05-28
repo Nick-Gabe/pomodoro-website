@@ -1,5 +1,11 @@
-.github__corner:hover .octo-arm {
-    animation: octocat-wave 560ms ease-in-out;
+.github__corner {
+    & svg {
+        clip-path: polygon(0 0, 0 100%, 100% 0);
+    }
+
+    &:hover .octo-arm {
+        animation: octocat-wave 560ms ease-in-out;
+    }
 }
 
 @keyframes octocat-wave {

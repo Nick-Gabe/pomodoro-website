@@ -38,7 +38,8 @@
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 10px;
-    transition: color .2s ease;
+    transition: 
+        color .5s ease;
     user-select: none;
 
     &:hover {
@@ -76,7 +77,9 @@
 .base-timer__path-elapsed {
     stroke-width: 4px;
     stroke-dasharray: 283 283;
-    transition: stroke-dasharray linear 1s;
+    transition: 
+        stroke-dasharray 1s linear,
+        stroke .5s ease;
     stroke-linecap: round;
 
     &.red {

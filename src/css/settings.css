@@ -60,19 +60,20 @@
   width: 100%; }
   .settings__header h2 {
     margin: 10px 0; }
-  .settings__header .settings--close {
+  .settings__header button {
     width: 20px;
     height: 20px;
-    background-image: url(../resources/x-svgrepo-com.svg);
     background-size: 20px;
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 50%;
-    padding: 15px;
-    transition: background-color .2s ease; }
-    .settings__header .settings--close:hover {
+    transition: background-color .2s ease;
+    padding: 15px; }
+    .settings__header button:hover {
       cursor: pointer;
       background-color: var(--light-gray); }
+  .settings__header .settings--close {
+    background-image: url(../resources/x-svgrepo-com.svg); }
 
 .settings__color {
   justify-content: space-between;

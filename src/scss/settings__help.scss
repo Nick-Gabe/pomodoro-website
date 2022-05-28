@@ -1,0 +1,43 @@
+.settings--help {
+    position: relative;
+    background-image: url(../resources/question-mark-svgrepo-com.svg);
+    background-size: 18px;
+
+    &:focus-within {
+        $bgColor: var(--light-gray);
+        
+        &::after {
+            content: "Pomodoro is a technique invented in 1980s, which helps you to focus and break large projects into small parts.\A\A • First you need to set a timer to your task, it's set to 25 minutes by default.\A\A • After your task you can have a short break, it's set to 5 minutes by default.\A\A • After repeating this 4 times, you can have a long break to restore yourself, it's set to 15 minutes by default.";
+            white-space: pre-line;
+            animation: tipAppear .4s ease 0s forwards;
+            position: absolute;
+            background-color: $bgColor;
+            z-index: 8;
+            padding: 10px;
+            font-weight: 700;
+            font-size: .8rem;
+            top: 40px;
+            right: -15px;
+            border-radius: 10px;
+            width: 35ch;
+            text-align: center;
+        }
+        &::before {
+            animation: tipAppear .4s ease 0s forwards;
+            content: '';
+            position: absolute;
+            bottom: -13px;
+            left: 5px;
+            border-bottom: 10px solid $bgColor;
+            border-top: 10px solid transparent;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+        }
+    }
+}
+
+@media (max-width: 375px) {
+    .settings--help:focus-within:after {
+        right: -40px;
+    }
+}

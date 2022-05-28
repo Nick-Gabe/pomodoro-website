@@ -4,13 +4,13 @@ import updateTimer from "./timer.js";
 
 const optionValues = {
     ['time-pomodoro']: {
-        current: storageGet('time-pomodoro') || 15
+        current: storageGet('time-pomodoro') || 25
     },
     ['time-shortBreak']: {
         current: storageGet('time-shortBreak') || 5
     },
     ['time-longBreak']: {
-        current: storageGet('time-longBreak') || 25
+        current: storageGet('time-longBreak') || 15
     },
     font: {
         current: storageGet('font') || 'Nunito'
@@ -150,7 +150,6 @@ changeSelectedColor(document.getElementById(optionValues.theme.current));
             }
         })
         applySettings(includeTimer)
-
     })
 })();
 
@@ -171,5 +170,5 @@ function applySettings(includeTimer = true) {
 
     apply.className = `settings--apply ${optionValues.theme.current}`
     settings.style.display = 'none'
-    includeTimer && updateTimer()
+    updateTimer(!includeTimer)
 }
