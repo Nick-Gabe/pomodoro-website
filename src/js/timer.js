@@ -9,8 +9,8 @@ const menuItems = document.querySelectorAll('.menu--item')
 const alarm = new Audio('resources/mixkit-alarm-tone-996.wav')
 const tickingClock = new Audio('resources/ticking-clock.mp3')
 
-let notification = null
-let timerInterval
+let idleID;
+let timerInterval;
 let currentColor = storageGet('theme') || 'red'
 let pomodoro = storageGet('time-pomodoro') || 25
 let short = storageGet('time-shortBreak') || 5
@@ -18,6 +18,7 @@ let long = storageGet('time-longBreak') || 15
 let isPaused = false
 let currentTimer = document.getElementById('menuPomodoro')
 let timestamp = Math.floor(Number(pomodoro) * 60)
+let startTimestamp;
 // let timestamp = 10
 let totalTimestamp = Math.floor(Number(pomodoro) * 60)
 // let totalTimestamp = 10
@@ -43,10 +44,12 @@ function pauseTimer() {
     if (isPaused) {
         isPaused = false
         pause.className = 'timer--pause'
-        startTimer()
+        startTimestamp = new Date().getTime()
+        idleID = requestIdleCallback(startTimer)
         return pause.textContent = "pause"
     }
     isPaused = true
+    cancelIdleCallback(idleID)
     clearInterval(timerInterval)
     pause.className = `timer--pause ${currentColor}`
     return pause.textContent = "resume"
@@ -74,13 +77,19 @@ function changeTimer(item) {
     currentTimer = item
     timestamp = Math.floor(Number(times[item.id]) * 60)
     totalTimestamp = Math.floor(Number(times[item.id]) * 60)
+    startTimestamp = new Date().getTime()
     timer.textContent = numToHour(timestamp)
     timerPath.style.strokeDasharray = `${timestamp / totalTimestamp * 283} 283`
 }
 
 function startTimer() {
+
     timerInterval = setInterval(() => {
         if (isPaused) return
+        let now = Math.floor((new Date().getTime() - startTimestamp) / 1000 - 1)
+
+        if (now >= totalTimestamp - timestamp) timestamp = totalTimestamp - now
+        
 
         timestamp--
         const timeFraction = timestamp / totalTimestamp
@@ -90,7 +99,7 @@ function startTimer() {
         if (timestamp === 8) {
             tickingClock.play()
         }
-        else if (timestamp === 0) {
+        else if (timestamp <= 0) {
             let notificationPerm = storageGet('notifications') || 'false'
 
             if (currentTimer === menuButtons[0] && breakSequence === 3) {
