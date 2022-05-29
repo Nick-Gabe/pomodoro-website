@@ -3,22 +3,23 @@ import { sendNotification } from './notifications.js';
 
 const pause = document.querySelector('.timer--pause')
 const timer = document.querySelector('.timer--counter')
-const menuButtons = document.querySelectorAll('.menu--item')
-const timerPath = document.querySelector('.base-timer__path-elapsed');
 const menuItems = document.querySelectorAll('.menu--item')
-const alarm = new Audio('resources/mixkit-alarm-tone-996.wav')
+const menuButtons = document.querySelectorAll('.menu--item')
 const tickingClock = new Audio('resources/ticking-clock.mp3')
+const alarm = new Audio('resources/mixkit-alarm-tone-996.wav')
+const timerPath = document.querySelector('.base-timer__path-elapsed');
 
 let idleID;
+let notification;
 let timerInterval;
+let startTimestamp;
+let isPaused = false
 let currentColor = storageGet('theme') || 'red'
 let pomodoro = storageGet('time-pomodoro') || 25
 let short = storageGet('time-shortBreak') || 5
 let long = storageGet('time-longBreak') || 15
-let isPaused = false
 let currentTimer = document.getElementById('menuPomodoro')
 let timestamp = Math.floor(Number(pomodoro) * 60)
-let startTimestamp;
 // let timestamp = 10
 let totalTimestamp = Math.floor(Number(pomodoro) * 60)
 // let totalTimestamp = 10
