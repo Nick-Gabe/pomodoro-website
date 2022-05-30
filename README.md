@@ -27,7 +27,7 @@ A website made to keep track of your time while doing the Pomodoro Technique. It
 - [x] Responsive UI
 - [x] Save user settings
 - [x] Desktop notifications and sounds
-- [ ] Translations
+- [x] Translations
 - [ ] Mobile notifications
 
 ## 🤝 How to contribute?
