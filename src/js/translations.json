@@ -1,0 +1,96 @@
+{
+    "short-break": {
+        "en": "short break",
+        "br": "pausa curta"
+    },
+    "long-break": {
+        "en": "long break",
+        "br": "pausa longa"
+    },
+    "resume": {
+        "en": "resume",
+        "br": "iniciar"
+    },
+    "pause": {
+        "en": "pause",
+        "br": "pausar"
+    },
+    "settings": {
+        "en": "Settings",
+        "br": "Configurações"
+    },
+    "time-minutes": {
+        "en": "time (minutes)",
+        "br": "tempo (minutos)"
+    },
+    "font": {
+        "en": "font",
+        "br": "fonte"
+    },
+    "color": {
+        "en": "color",
+        "br": "cor"
+    },
+    "language": {
+        "en": "language",
+        "br": "língua"
+    },
+    "notifications": {
+        "en": "notifications",
+        "br": "notificações"
+    },
+    "apply": {
+        "en": "Apply",
+        "br": "Salvar"
+    },
+    "help-desc": {
+        "en": "Pomodoro is a technique invented in 1980s, which helps you focus and break large projects into small parts.<br><br> • First you need to set a timer to your task, it's set to 25 minutes by default.<br><br> • After your task you can have a short break, it's set to 5 minutes by default<br><br> • After repeating this 4 times, you can have a long break to restore yourself, it's set to 15 minutes by default.",
+        "br": "Pomodoro é uma técnica inventada na década de 1980, ela te ajuda a focar e quebrar tarefas longas em partes pequenas.<br><br> • Primeiro você precisa definir um tempo para realizar sua tarefa, é definido em 25 minutos por padrão.<br><br> • Após finalizar sua tarefa você pode ter uma pausa curta, ela é definida em 5 minutos por padrão.<br><br> • Quando repetir este ciclo 4 vezes, você poderá ter uma pausa longa para se recuperar, ela é definida em 15 minutos por padrão."
+    },
+    "pomodoro-tip": {
+        "en": "During this time you should do your task.",
+        "br": "Durante este tempo você executará sua tarefa."
+    },
+    "short-break-tip": {
+        "en": "After your task, you can have a short break",
+        "br": "Após sua tarefa, você pode ter uma pausa curta."
+    },
+    "long-break-tip": {
+        "en": "After 3 short breaks, you can have a long break.",
+        "br": "Após 3 pausas curtas, você pode ter uma pausa longa."
+    },
+    "notification-pomodoro": {
+        "en": {
+            "title": "It is time to start your task!",
+            "short": "short",
+            "long": "long",
+            "body": "You will have a %{break-type} break in %{time} minutes."
+        },
+        "br": {
+            "title": "Chegou a hora de continuar a tarefa!",
+            "short": "curta",
+            "long": "longa",
+            "body": "Você poderá ter uma %{break-type} pausa em %{time} minutos."
+        }
+    },
+    "notification-short-break": {
+        "en": {
+            "title": "Hey, take a short break!",
+            "body": "Your next pomodoro timer will start in %{time} minutes."
+        },
+        "br": {
+            "title": "Ei, descansa um pouco!",
+            "body": "Você poderá continuar sua tarefa em %{time} minutos."
+        }
+    },
+    "notification-long-break": {
+        "en": {
+            "title": "You can finally rest!",
+            "body": "Take a long break now, your next pomodoro timer will start in %{time} minutes."
+        },
+        "br": {
+            "title": "Finalmente o descanso desejado!",
+            "body": "Pode dar uma pausa maior agora, você poderá continuar sua tarefa em %{time} minutos."
+        }
+    }
+}

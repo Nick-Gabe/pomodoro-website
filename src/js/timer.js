@@ -1,3 +1,4 @@
+import { getTranslation } from "./languages.js";
 import { storageGet } from "./localStorage.js";
 import { sendNotification } from './notifications.js';
 
@@ -20,9 +21,7 @@ let short = storageGet('time-shortBreak') || 5
 let long = storageGet('time-longBreak') || 15
 let currentTimer = document.getElementById('menuPomodoro')
 let timestamp = Math.floor(Number(pomodoro) * 60)
-// let timestamp = 10
 let totalTimestamp = Math.floor(Number(pomodoro) * 60)
-// let totalTimestamp = 10
 let breakSequence = 0;
 
 menuItems.forEach(item => {
@@ -47,17 +46,19 @@ function pauseTimer() {
         pause.className = 'timer--pause'
         startTimestamp = new Date().getTime()
         idleID = requestIdleCallback(startTimer)
-        return pause.textContent = "pause"
+        return pause.textContent = pause.getAttribute('data-pause') || 'pause'
     }
     isPaused = true
     cancelIdleCallback(idleID)
     clearInterval(timerInterval)
     pause.className = `timer--pause ${currentColor}`
-    return pause.textContent = "resume"
+    return pause.textContent = pause.getAttribute('data-resume') || 'resume'
 }
 pauseTimer()
 
 function numToHour(num) {
+    if(num === 3600) return "60:00"
+    
     let minutes = Math.floor(num % 3600 / 60)
     let seconds = Math.floor(num % 3600 % 60)
 
@@ -84,13 +85,12 @@ function changeTimer(item) {
 }
 
 function startTimer() {
-
     timerInterval = setInterval(() => {
         if (isPaused) return
         let now = Math.floor((new Date().getTime() - startTimestamp) / 1000 - 1)
 
         if (now >= totalTimestamp - timestamp) timestamp = totalTimestamp - now
-        
+
 
         timestamp--
         const timeFraction = timestamp / totalTimestamp
@@ -110,9 +110,12 @@ function startTimer() {
                 changeSelected(menuButtons[2])
 
                 if (notificationPerm == 'true') {
+                    const userLang = storageGet('language') || 'en'
+                    const translated = getTranslation('notification-long-break', userLang)
+
                     notification = sendNotification({
-                        title: 'You can finally rest!',
-                        body: `Take a long break now, your next pomodoro timer will start in ${Math.floor(totalTimestamp / 60)} minutes.`,
+                        title: translated.title,
+                        body: translated.body.replace(/%{time}/g, Math.floor(totalTimestamp / 60)),
                         image: './resources/longBreak.png',
                         icon: './resources/logo500.png'
                         // image: 'https://i.imgur.com/OzcVy9J.png'
@@ -128,9 +131,12 @@ function startTimer() {
                 changeSelected(menuButtons[1])
 
                 if (notificationPerm == 'true') {
+                    const userLang = storageGet('language') || 'en'
+                    const translated = getTranslation('notification-short-break', userLang)
+
                     notification = sendNotification({
-                        title: 'Hey, take a short break!',
-                        body: `Your next pomodoro timer will start in ${Math.floor(totalTimestamp / 60)} minutes.`,
+                        title: translated.title,
+                        body: translated.body.replace(/%{time}/g, Math.floor(totalTimestamp / 60)),
                         image: './resources/shortBreak.png',
                         icon: './resources/logo500.png'
                         // image: 'https://i.imgur.com/ucKAK47.png'
@@ -145,9 +151,15 @@ function startTimer() {
                 changeSelected(menuButtons[0])
 
                 if (notificationPerm == 'true') {
+                    const userLang = storageGet('language') || 'en'
+                    const translated = getTranslation('notification-pomodoro', userLang)
+
                     notification = sendNotification({
-                        title: 'It is time to start your task!',
-                        body: `You will have a ${breakSequence === 3 ? 'long' : 'short'} break in ${Math.floor(totalTimestamp / 60)} minutes.`,
+                        title: translated.title,
+                        body: translated.body
+                            .replace(/%{time}/g, Math.floor(totalTimestamp / 60))
+                            .replace(/%{break-type}/g, breakSequence === 3
+                                ? translated.long : translated.short),
                         image: './resources/pomodoro.png',
                         icon: './resources/logo500.png'
                         // image: 'https://i.imgur.com/QRSKyvq.png'

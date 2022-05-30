@@ -96,6 +96,25 @@
       cursor: pointer;
       filter: brightness(75%); }
 
+.settings__language {
+  justify-content: space-between; }
+  .settings__language button {
+    width: 38px;
+    height: 38px;
+    padding: 1px 6px;
+    margin: 0 5px;
+    position: relative; }
+    .settings__language button.selected img {
+      box-shadow: 0 0 0 2px var(--yankees-blue); }
+  .settings__language img {
+    position: relative;
+    right: 6px;
+    width: 38px;
+    border-radius: 50%; }
+    .settings__language img:hover {
+      cursor: pointer;
+      filter: brightness(75%); }
+
 .settings--apply {
   text-align: center;
   left: 50%;
@@ -120,6 +139,9 @@
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.7); }
 
 @media (max-width: 425px) {
+  .settings {
+    top: 15px; }
+
   .settings__popup {
     display: flex;
     flex-direction: column;
@@ -130,13 +152,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    margin: 0 0 20px 0; }
+    justify-content: center; }
     .settings__font ul,
     .settings__color ul {
       padding: 0;
       margin: 0;
       width: 153px !important; }
+
+  .settings__language {
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0; }
+    .settings__language ul {
+      padding: 0;
+      margin: 0; }
 
   .settings__time {
     display: flex;
@@ -154,8 +183,7 @@
       .settings__time > div input {
         width: 70%; }
       .settings__time > div::before {
-        left: 20px;
-        bottom: 0px !important; }
+        left: 20px; }
       .settings__time > div::after {
-        bottom: -74px !important;
+        top: 50px !important;
         width: 18ch !important; } }

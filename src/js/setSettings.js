@@ -1,5 +1,6 @@
 import { storageGet, storageSet } from "./localStorage.js";
 import { askNotificationPermission } from "./notifications.js";
+import { changeLanguage } from './languages.js';
 import updateTimer from "./timer.js";
 
 const optionValues = {
@@ -17,12 +18,16 @@ const optionValues = {
     },
     theme: {
         current: storageGet('theme') || 'red'
+    },
+    language: {
+        current: storageGet('language') || 'en'
     }
 };
 
 const timeInputs = document.querySelectorAll('.settings__time input');
 const fonts = document.querySelectorAll('.fonts > button');
 const colors = document.querySelectorAll('.color > button');
+const languages = document.querySelectorAll('.language > button');
 const apply = document.getElementById('submitSettings');
 const timer = document.querySelector('.timer--counter');
 const settings = document.getElementById('settings');
@@ -108,8 +113,28 @@ function changeSelectedColor(target) {
 };
 changeSelectedColor(document.getElementById(optionValues.theme.current));
 
+(function setLanguage() {
+    languages.forEach(lang => {
+        if (optionValues.language.current === lang.id) {
+            changeSelectedLanguage(lang)
+        }
+
+        lang.addEventListener('click', function () {
+            optionValues.language.next = this.id
+            changeSelectedLanguage(this)
+        })
+    })
+})();
+function changeSelectedLanguage(target) {
+    changeLanguage(target.id)
+    const previousSelected = document.querySelector('.language .selected')
+    previousSelected.classList.remove('selected')
+    target.classList.add('selected')
+    storageSet('language', target.id)
+};
+
 (function setNotifButton() {
-    if(notifPerms == 'true') notifCheckbox.checked = true
+    if (notifPerms == 'true') notifCheckbox.checked = true
     else notifCheckbox.checked = false
 
     notifSwitch.addEventListener('click', function () {
@@ -139,7 +164,7 @@ changeSelectedColor(document.getElementById(optionValues.theme.current));
     apply.addEventListener('click', function () {
 
         Object.entries(optionValues).forEach(([key, value]) => {
-            if(key.startsWith('time') && value.next !== undefined) {
+            if (key.startsWith('time') && value.next !== undefined) {
                 includeTimer = true
             }
 
@@ -154,6 +179,11 @@ changeSelectedColor(document.getElementById(optionValues.theme.current));
 })();
 
 function applySettings(includeTimer = true) {
+    delete optionValues.font.next
+    delete optionValues.font.next
+    delete optionValues.theme.next
+    delete optionValues.language.next
+
     timeInputs.forEach(inputTag => {
         inputTag.value = optionValues[`time-${inputTag.id}`].current
     })
@@ -165,6 +195,11 @@ function applySettings(includeTimer = true) {
     colors.forEach(color => {
         if (optionValues.theme.current === color.id) {
             changeSelectedColor(color)
+        }
+    })
+    languages.forEach(lang => {
+        if (optionValues.language.current === lang.id) {
+            changeSelectedLanguage(lang)
         }
     })
 

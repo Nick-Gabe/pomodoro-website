@@ -55,15 +55,15 @@
                     <h3>Time (minutes)</h3>
                     <div class="pomodoro">
                         <label for="pomodoro">pomodoro</label>
-                        <input type="number" name="pomodoro" id="pomodoro" min="1" max="60">
+                        <input type="number" aria-label="Insert pomodoro time" id="pomodoro" min="1" max="60">
                     </div>
                     <div class="shortBreak">
                         <label for="shortBreak">short break</label>
-                        <input type="number" name="shortBreak" id="shortBreak" min="1" max="60">
+                        <input type="number" aria-label="Insert short break time" id="shortBreak" min="1" max="60">
                     </div>
                     <div class="longBreak">
                         <label for="longBreak">long break</label>
-                        <input type="number" name="longBreak" id="longBreak" min="1" max="60">
+                        <input type="number" aria-label="Insert long break time" id="longBreak" min="1" max="60">
                     </div>
                 </div>
                 <div class="settings__font">
@@ -83,6 +83,17 @@
                         <button data-color="var(--bright-lilac)" aria-label="Choose lilac color" id="lilac"></button>
                     </ul>
                 </div>
+                <div class="settings__language">
+                    <h3>language</h3>
+                    <ul class="language">
+                        <button class="selected" id="en" aria-label="Choose english language">
+                            <img src="./resources/flag-usa.svg" alt="Flag of the United States">
+                        </button>
+                        <button id="br" aria-label="Choose portuguese language">
+                            <img src="./resources/flag-brazil.svg" alt="Flag of Brazil">
+                        </button>
+                    </ul>
+                </div>
                 <div class="settings__notifications">
                     <h3>notifications</h3>
                     <div class="switch">
@@ -95,9 +106,9 @@
         </div>
     </main>
     <aside class="github__corner">
-        <a href="https://github.com/Nick-Gabe/pomodoro-website">
+        <a href="https://github.com/Nick-Gabe/pomodoro-website" aria-label="Visit the website's github">
             <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 250 250" fill="#e7ecff"
-                style="position: absolute; top: 0; left: 0">
+                style="position: absolute; top: 15px; left: 0">
                 <path fill="#151932" d="M250 0L135 115h-15l-12 27L0 250V0z" />
                 <path class="octo-arm"
                     d="M122 109c15-9 9-19 9-19-3-7-2-11-2-11 1-7-3-2-3-2-4 5-2 11-2 11 3 10-5 15-9 16"

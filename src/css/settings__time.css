@@ -26,7 +26,7 @@
 .pomodoro:focus-within {
   align-items: center; }
   .pomodoro:focus-within::after {
-    content: "This is the time you have to do your task.";
+    content: attr(data-pomodoro-tip);
     animation: tipAppear .4s ease 0s forwards;
     position: absolute;
     background-color: var(--light-gray);
@@ -34,7 +34,7 @@
     padding: 10px;
     font-weight: 700;
     font-size: .8rem;
-    bottom: -68px;
+    top: 74px;
     border-radius: 10px;
     width: 20ch;
     text-align: center; }
@@ -51,7 +51,7 @@
 .shortBreak:focus-within {
   align-items: center; }
   .shortBreak:focus-within::after {
-    content: "After your task, you can have a short break.";
+    content: attr(data-short-break-tip);
     animation: tipAppear .4s ease 0s forwards;
     position: absolute;
     background-color: var(--light-gray);
@@ -59,7 +59,7 @@
     padding: 10px;
     font-weight: 700;
     font-size: .8rem;
-    bottom: -68px;
+    top: 74px;
     border-radius: 10px;
     width: 25ch;
     text-align: center; }
@@ -76,7 +76,7 @@
 .longBreak:focus-within {
   align-items: center; }
   .longBreak:focus-within::after {
-    content: "After 4 short breaks, you can have a long break.";
+    content: attr(data-long-break-tip);
     animation: tipAppear .4s ease 0s forwards;
     position: absolute;
     background-color: var(--light-gray);
@@ -84,7 +84,7 @@
     padding: 10px;
     font-weight: 700;
     font-size: .8rem;
-    bottom: -68px;
+    top: 74px;
     border-radius: 10px;
     width: 25ch;
     text-align: center; }

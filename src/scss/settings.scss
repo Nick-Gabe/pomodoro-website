@@ -133,6 +133,48 @@
     }
 }
 
+.settings__language {
+    justify-content: space-between;
+
+    & button {
+        width: 38px;
+        height: 38px;
+        padding: 1px 6px;
+        margin: 0 5px;
+        position: relative;
+        
+        &.selected img {
+            box-shadow: 0 0 0 2px var(--yankees-blue);
+        }
+        // &.selected::after {
+        //     content: '';
+        //     position: absolute;
+        //     width: 38px;
+        //     height: 38px;
+        //     top: 0;
+        //     left: 0;
+        //     background-image: url(../resources/check-svgrepo-com.svg);
+        //     background-repeat: no-repeat;
+        //     background-size: 50%;
+        //     background-position: center;
+        // }
+    }
+    
+    & img {
+        position: relative;
+        right: 6px;
+        width: 38px;
+        border-radius: 50%;
+
+        &:hover {
+            cursor: pointer;
+            filter: brightness(75%);
+
+        }
+
+    }
+}
+
 .settings--apply {
     text-align: center;
     left: 50%;
@@ -166,6 +208,10 @@
 }
 
 @media (max-width: 425px) {
+    .settings {
+        top: 15px;
+    }
+
     .settings__popup {
         display: flex;
         flex-direction: column;
@@ -178,12 +224,21 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin: 0 0 20px 0;
         
         & ul {
             padding: 0;
             margin: 0;
             width: 153px !important;
+        }
+    }
+
+    .settings__language {
+        flex-direction: column;
+        align-items: center;
+        margin: 10px 0;
+        & ul {
+            padding: 0;
+            margin: 0;
         }
     }
     
@@ -210,10 +265,9 @@
 
             &::before {
                 left: 20px;
-                bottom: 0px !important;
             }
             &::after {
-                bottom: -74px !important;
+                top: 50px !important;
                 width: 18ch !important;
             }
         }
