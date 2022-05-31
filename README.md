@@ -3,11 +3,14 @@
 </p>
 <hr>
 <p align="center">
-    <img src="https://img.shields.io/github/contributors/nick-gabe/pomodoro-website" alt="" />
-    <img src="https://img.shields.io/github/languages/count/nick-gabe/pomodoro-website" alt="" />
-    <img src="https://img.shields.io/github/stars/Nick-Gabe/pomodoro-website" alt="" />
-    <img src="https://img.shields.io/github/issues-raw/Nick-Gabe/pomodoro-website" alt="" />
-    <img src="https://img.shields.io/github/languages/top/nick-gabe/pomodoro-website" alt="" />
+    <img src="https://img.shields.io/github/contributors/nick-gabe/pomodoro-website" alt="Contributors count" />
+    <img src="https://img.shields.io/github/languages/count/nick-gabe/pomodoro-website" alt=" Languages used" />
+    <img src="https://img.shields.io/github/stars/Nick-Gabe/pomodoro-website" alt="Repository stars" />
+    <img src="https://img.shields.io/github/issues-raw/Nick-Gabe/pomodoro-website" alt="Open issues" />
+    <img src="https://img.shields.io/github/languages/top/nick-gabe/pomodoro-website" alt="Most used language" />
+    <a href="https://app.netlify.com/sites/nick-pomodoro/deploys">
+        <img src="https://api.netlify.com/api/v1/badges/c14845c9-e420-4628-865a-6db40483717b/deploy-status" alt="Netlify build">
+    </a>
 </p>
 
 <p align="center">
